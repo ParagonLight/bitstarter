@@ -9,7 +9,10 @@ var content = fs.readFileSync(fileName, "utf-8");
 
 var app = express.createServer(express.logger());
 
+
 var buffer = new Buffer(content,"utf-8");
+
+app.use(express.static(__dirname + '/bootstrap'));
 
 app.get('/', function(request, response) {
   response.send(buffer.toString('utf-8'));
